@@ -1,0 +1,1645 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "capturedAt": "2026-08-12T14:51:00Z",
+  "items": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api",
+        "generation": 4,
+        "labels": {
+          "app": "search-api"
+        }
+      },
+      "spec": {
+        "replicas": 6,
+        "selector": {
+          "matchLabels": {
+            "app": "search-api"
+          }
+        },
+        "strategy": {
+          "type": "RollingUpdate",
+          "rollingUpdate": {
+            "maxUnavailable": "25%",
+            "maxSurge": "25%"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 4,
+        "replicas": 7,
+        "updatedReplicas": 5,
+        "readyReplicas": 5,
+        "availableReplicas": 5,
+        "unavailableReplicas": 1,
+        "conditions": [
+          {
+            "type": "Available",
+            "status": "True",
+            "reason": "MinimumReplicasAvailable",
+            "lastTransitionTime": "2026-08-11T09:14:02Z"
+          },
+          {
+            "type": "Progressing",
+            "status": "True",
+            "reason": "ReplicaSetUpdated",
+            "message": "ReplicaSet \"search-api-7d9f\" is progressing.",
+            "lastTransitionTime": "2026-08-12T14:50:30Z"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-7d9f",
+        "generation": 1,
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "7d9f"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/revision": "4"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "search-api",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 5,
+        "selector": {
+          "matchLabels": {
+            "app": "search-api",
+            "pod-template-hash": "7d9f"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 1,
+        "replicas": 5,
+        "readyReplicas": 4,
+        "availableReplicas": 4
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-6c2a",
+        "generation": 3,
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "6c2a"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/revision": "3"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "search-api",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 2,
+        "selector": {
+          "matchLabels": {
+            "app": "search-api",
+            "pod-template-hash": "6c2a"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 3,
+        "replicas": 2,
+        "readyReplicas": 1,
+        "availableReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-7d9f-aa11",
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "7d9f"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "search-api-7d9f",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "api",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-12T14:50:35Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-7d9f-bb22",
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "7d9f"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "search-api-7d9f",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "api",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-12T14:50:36Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-7d9f-cc33",
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "7d9f"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "search-api-7d9f",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "api",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-12T14:50:41Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-7d9f-dd44",
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "7d9f"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "search-api-7d9f",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "api",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-12T14:50:44Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-7d9f-ee55",
+        "creationTimestamp": "2026-08-12T14:50:52Z",
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "7d9f"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "search-api-7d9f",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Pending",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady",
+            "lastTransitionTime": "2026-08-12T14:50:52Z"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-6c2a-ff66",
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "6c2a"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "search-api-6c2a",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "api",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-11T09:13:50Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-6c2a-gg77",
+        "deletionTimestamp": "2026-08-12T14:50:48Z",
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "6c2a"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "search-api-6c2a",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady",
+            "lastTransitionTime": "2026-08-12T14:50:49Z"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "api",
+            "ready": false,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-11T09:13:52Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-canary",
+        "generation": 2,
+        "labels": {
+          "app": "search-api",
+          "track": "canary"
+        }
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app": "search-api",
+            "track": "canary"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 2,
+        "replicas": 1,
+        "updatedReplicas": 1,
+        "readyReplicas": 0,
+        "unavailableReplicas": 1,
+        "conditions": [
+          {
+            "type": "Available",
+            "status": "False",
+            "reason": "MinimumReplicasUnavailable",
+            "lastTransitionTime": "2026-08-12T13:02:11Z"
+          },
+          {
+            "type": "Progressing",
+            "status": "False",
+            "reason": "ProgressDeadlineExceeded",
+            "message": "ReplicaSet \"search-api-canary-1122\" has timed out progressing.",
+            "lastTransitionTime": "2026-08-12T13:12:15Z"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-canary-1122",
+        "generation": 1,
+        "labels": {
+          "app": "search-api",
+          "track": "canary",
+          "pod-template-hash": "1122"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "search-api-canary",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app": "search-api",
+            "track": "canary",
+            "pod-template-hash": "1122"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 1,
+        "replicas": 1,
+        "readyReplicas": 0
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-api-canary-1122-zz99",
+        "creationTimestamp": "2026-08-12T13:02:11Z",
+        "labels": {
+          "app": "search-api",
+          "track": "canary",
+          "pod-template-hash": "1122"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "search-api-canary-1122",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Pending",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady",
+            "lastTransitionTime": "2026-08-12T13:02:12Z"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "api",
+            "ready": false,
+            "restartCount": 0,
+            "image": "registry.internal/search-api:v2.11.0-rc4",
+            "state": {
+              "waiting": {
+                "reason": "ErrImagePull",
+                "message": "rpc error: code = Unknown desc = manifest for registry.internal/search-api:v2.11.0-rc4 not found"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "batch-worker",
+        "generation": 9,
+        "labels": {
+          "app": "batch-worker"
+        }
+      },
+      "spec": {
+        "replicas": 0,
+        "selector": {
+          "matchLabels": {
+            "app": "batch-worker"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 9,
+        "conditions": [
+          {
+            "type": "Available",
+            "status": "True",
+            "reason": "MinimumReplicasAvailable",
+            "lastTransitionTime": "2026-08-10T22:41:07Z"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "StatefulSet",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-index",
+        "generation": 2,
+        "labels": {
+          "app": "search-index"
+        }
+      },
+      "spec": {
+        "replicas": 3,
+        "serviceName": "search-index",
+        "podManagementPolicy": "OrderedReady",
+        "selector": {
+          "matchLabels": {
+            "app": "search-index"
+          }
+        },
+        "updateStrategy": {
+          "type": "RollingUpdate"
+        }
+      },
+      "status": {
+        "observedGeneration": 2,
+        "replicas": 3,
+        "readyReplicas": 2,
+        "currentReplicas": 3,
+        "updatedReplicas": 3,
+        "currentRevision": "search-index-5f6d7c",
+        "updateRevision": "search-index-5f6d7c",
+        "collisionCount": 0
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-index-0",
+        "labels": {
+          "app": "search-index",
+          "statefulset.kubernetes.io/pod-name": "search-index-0"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "search-index",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "index",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-09T04:22:10Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-index-1",
+        "labels": {
+          "app": "search-index",
+          "statefulset.kubernetes.io/pod-name": "search-index-1"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "search-index",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "index",
+            "ready": true,
+            "restartCount": 1,
+            "lastState": {
+              "terminated": {
+                "reason": "Error",
+                "exitCode": 1,
+                "finishedAt": "2026-08-09T04:21:40Z"
+              }
+            },
+            "state": {
+              "running": {
+                "startedAt": "2026-08-09T04:22:55Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "search-prod",
+        "name": "search-index-2",
+        "labels": {
+          "app": "search-index",
+          "statefulset.kubernetes.io/pod-name": "search-index-2"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "search-index",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady",
+            "lastTransitionTime": "2026-08-12T12:41:33Z"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "index",
+            "ready": false,
+            "restartCount": 12,
+            "lastState": {
+              "terminated": {
+                "reason": "Error",
+                "exitCode": 1,
+                "finishedAt": "2026-08-12T14:49:02Z"
+              }
+            },
+            "state": {
+              "waiting": {
+                "reason": "CrashLoopBackOff",
+                "message": "back-off 5m0s restarting failed container=index"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "namespace": "platform",
+        "name": "metrics-adapter",
+        "generation": 7,
+        "labels": {
+          "app": "metrics-adapter"
+        }
+      },
+      "spec": {
+        "replicas": 3,
+        "selector": {
+          "matchLabels": {
+            "app": "metrics-adapter"
+          }
+        },
+        "strategy": {
+          "type": "RollingUpdate",
+          "rollingUpdate": {
+            "maxUnavailable": "25%",
+            "maxSurge": "25%"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 7,
+        "replicas": 3,
+        "updatedReplicas": 3,
+        "readyReplicas": 2,
+        "availableReplicas": 2,
+        "unavailableReplicas": 1,
+        "conditions": [
+          {
+            "type": "Available",
+            "status": "False",
+            "reason": "MinimumReplicasUnavailable",
+            "lastTransitionTime": "2026-08-12T11:58:20Z"
+          },
+          {
+            "type": "Progressing",
+            "status": "False",
+            "reason": "ProgressDeadlineExceeded",
+            "message": "ReplicaSet \"metrics-adapter-9a1b\" has timed out progressing.",
+            "lastTransitionTime": "2026-08-12T12:08:24Z"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "ReplicaSet",
+      "metadata": {
+        "namespace": "platform",
+        "name": "metrics-adapter-9a1b",
+        "generation": 1,
+        "labels": {
+          "app": "metrics-adapter",
+          "pod-template-hash": "9a1b"
+        },
+        "annotations": {
+          "deployment.kubernetes.io/revision": "7"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "metrics-adapter",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "replicas": 3,
+        "selector": {
+          "matchLabels": {
+            "app": "metrics-adapter",
+            "pod-template-hash": "9a1b"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 1,
+        "replicas": 3,
+        "readyReplicas": 2,
+        "availableReplicas": 2
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "platform",
+        "name": "metrics-adapter-9a1b-p1",
+        "labels": {
+          "app": "metrics-adapter",
+          "pod-template-hash": "9a1b"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "metrics-adapter-9a1b",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "initContainerStatuses": [
+          {
+            "name": "wait-for-config",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "terminated": {
+                "reason": "Completed",
+                "exitCode": 0
+              }
+            }
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "adapter",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-12T11:57:02Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "platform",
+        "name": "metrics-adapter-9a1b-p2",
+        "creationTimestamp": "2026-08-12T11:58:19Z",
+        "labels": {
+          "app": "metrics-adapter",
+          "pod-template-hash": "9a1b"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "metrics-adapter-9a1b",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Pending",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady",
+            "lastTransitionTime": "2026-08-12T11:58:19Z"
+          }
+        ],
+        "initContainerStatuses": [
+          {
+            "name": "wait-for-config",
+            "ready": false,
+            "restartCount": 0,
+            "image": "registry.internal/config-waiter:0.4.2",
+            "state": {
+              "waiting": {
+                "reason": "ImagePullBackOff",
+                "message": "Back-off pulling image \"registry.internal/config-waiter:0.4.2\""
+              }
+            }
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "adapter",
+            "ready": false,
+            "restartCount": 0,
+            "state": {
+              "waiting": {
+                "reason": "PodInitializing"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "platform",
+        "name": "metrics-adapter-9a1b-p3",
+        "labels": {
+          "app": "metrics-adapter",
+          "pod-template-hash": "9a1b"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "metrics-adapter-9a1b",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "adapter",
+            "ready": true,
+            "restartCount": 47,
+            "lastState": {
+              "terminated": {
+                "reason": "OOMKilled",
+                "exitCode": 137,
+                "finishedAt": "2026-08-12T14:44:51Z"
+              }
+            },
+            "state": {
+              "running": {
+                "startedAt": "2026-08-12T14:45:20Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "namespace": "platform",
+        "name": "search-api",
+        "generation": 3,
+        "labels": {
+          "app": "search-api"
+        }
+      },
+      "spec": {
+        "replicas": 1,
+        "selector": {
+          "matchLabels": {
+            "app": "search-api"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 3,
+        "replicas": 1,
+        "updatedReplicas": 1,
+        "readyReplicas": 1,
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "type": "Available",
+            "status": "True",
+            "reason": "MinimumReplicasAvailable",
+            "lastTransitionTime": "2026-08-07T16:30:00Z"
+          },
+          {
+            "type": "Progressing",
+            "status": "True",
+            "reason": "NewReplicaSetAvailable",
+            "lastTransitionTime": "2026-08-07T16:30:04Z"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "platform",
+        "name": "search-api-3ab4-only",
+        "labels": {
+          "app": "search-api",
+          "pod-template-hash": "3ab4"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "search-api-3ab4",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "shim",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-07T16:30:02Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "namespace": "platform",
+        "name": "legacy-exporter",
+        "generation": 5,
+        "labels": {
+          "app": "legacy-exporter"
+        }
+      },
+      "spec": {
+        "replicas": 2,
+        "paused": true,
+        "selector": {
+          "matchLabels": {
+            "app": "legacy-exporter"
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 5,
+        "replicas": 2,
+        "updatedReplicas": 1,
+        "readyReplicas": 1,
+        "availableReplicas": 1,
+        "unavailableReplicas": 1,
+        "conditions": [
+          {
+            "type": "Available",
+            "status": "False",
+            "reason": "MinimumReplicasUnavailable",
+            "lastTransitionTime": "2026-08-12T10:15:41Z"
+          },
+          {
+            "type": "Progressing",
+            "status": "Unknown",
+            "reason": "DeploymentPaused",
+            "message": "Deployment is paused",
+            "lastTransitionTime": "2026-08-12T10:16:02Z"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "platform",
+        "name": "legacy-exporter-4f3a-q1",
+        "labels": {
+          "app": "legacy-exporter",
+          "pod-template-hash": "4f3a"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "legacy-exporter-4f3a",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "exporter",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-06T08:00:11Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "platform",
+        "name": "legacy-exporter-8c1d-q2",
+        "creationTimestamp": "2026-08-12T10:15:40Z",
+        "labels": {
+          "app": "legacy-exporter",
+          "pod-template-hash": "8c1d"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "legacy-exporter-8c1d",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Pending",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady",
+            "lastTransitionTime": "2026-08-12T10:15:40Z"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "exporter",
+            "ready": false,
+            "restartCount": 0,
+            "state": {
+              "waiting": {
+                "reason": "ImagePullBackOff",
+                "message": "Back-off pulling image \"registry.internal/legacy-exporter:2.0.0\""
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "DaemonSet",
+      "metadata": {
+        "namespace": "edge",
+        "name": "log-shipper",
+        "generation": 3,
+        "labels": {
+          "app": "log-shipper"
+        }
+      },
+      "spec": {
+        "selector": {
+          "matchLabels": {
+            "app": "log-shipper"
+          }
+        },
+        "updateStrategy": {
+          "type": "RollingUpdate",
+          "rollingUpdate": {
+            "maxUnavailable": 1
+          }
+        }
+      },
+      "status": {
+        "observedGeneration": 3,
+        "currentNumberScheduled": 4,
+        "desiredNumberScheduled": 4,
+        "numberReady": 3,
+        "numberAvailable": 3,
+        "numberUnavailable": 1,
+        "updatedNumberScheduled": 4,
+        "numberMisscheduled": 0
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "edge",
+        "name": "log-shipper-n1",
+        "labels": {
+          "app": "log-shipper",
+          "controller-revision-hash": "6b7f"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "name": "log-shipper",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "shipper",
+            "ready": true,
+            "restartCount": 2,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-11T20:00:00Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "edge",
+        "name": "log-shipper-n2",
+        "labels": {
+          "app": "log-shipper",
+          "controller-revision-hash": "6b7f"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "name": "log-shipper",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "shipper",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-11T20:00:03Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "edge",
+        "name": "log-shipper-n3",
+        "labels": {
+          "app": "log-shipper",
+          "controller-revision-hash": "6b7f"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "name": "log-shipper",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "shipper",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-11T20:00:09Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "edge",
+        "name": "log-shipper-n4",
+        "creationTimestamp": "2026-08-12T09:30:00Z",
+        "labels": {
+          "app": "log-shipper",
+          "controller-revision-hash": "6b7f"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "name": "log-shipper",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady",
+            "lastTransitionTime": "2026-08-12T09:30:12Z"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "shipper",
+            "ready": false,
+            "restartCount": 0,
+            "state": {
+              "waiting": {
+                "reason": "CreateContainerConfigError",
+                "message": "secret \"log-shipper-token\" not found"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "edge",
+        "name": "debug-shell",
+        "creationTimestamp": "2026-08-12T14:10:00Z"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady",
+            "lastTransitionTime": "2026-08-12T14:10:30Z"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "shell",
+            "ready": false,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-08-12T14:10:05Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "edge",
+        "name": "probe-runner-8xk2",
+        "labels": {
+          "app": "probe-runner"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "edge.factfinder.io/v1",
+            "kind": "ProbeSet",
+            "name": "probe-runner",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady",
+            "lastTransitionTime": "2026-08-12T14:20:00Z"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "probe",
+            "ready": false,
+            "restartCount": 8,
+            "state": {
+              "waiting": {
+                "reason": "CrashLoopBackOff",
+                "message": "back-off 2m40s restarting failed container=probe"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "namespace": "jobs",
+        "name": "db-migration",
+        "labels": {
+          "app": "db-migration"
+        }
+      },
+      "spec": {
+        "completions": 1,
+        "parallelism": 1,
+        "backoffLimit": 4,
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "aaaa-1111"
+          }
+        }
+      },
+      "status": {
+        "succeeded": 1,
+        "completionTime": "2026-08-12T03:14:52Z",
+        "conditions": [
+          {
+            "type": "Complete",
+            "status": "True",
+            "lastTransitionTime": "2026-08-12T03:14:52Z"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "jobs",
+        "name": "db-migration-lm4z",
+        "labels": {
+          "job-name": "db-migration",
+          "batch.kubernetes.io/controller-uid": "aaaa-1111"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1",
+            "kind": "Job",
+            "name": "db-migration",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Succeeded",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "PodCompleted"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "migrate",
+            "ready": false,
+            "restartCount": 0,
+            "state": {
+              "terminated": {
+                "reason": "Completed",
+                "exitCode": 0,
+                "finishedAt": "2026-08-12T03:14:50Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "namespace": "jobs",
+        "name": "reindex-shards",
+        "labels": {
+          "app": "reindex-shards"
+        }
+      },
+      "spec": {
+        "completions": 1,
+        "parallelism": 1,
+        "backoffLimit": 2,
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "bbbb-2222"
+          }
+        }
+      },
+      "status": {
+        "failed": 3,
+        "conditions": [
+          {
+            "type": "Failed",
+            "status": "True",
+            "reason": "BackoffLimitExceeded",
+            "message": "Job has reached the specified backoff limit",
+            "lastTransitionTime": "2026-08-12T13:40:19Z"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "namespace": "jobs",
+        "name": "reindex-shards-9xk1",
+        "labels": {
+          "job-name": "reindex-shards",
+          "batch.kubernetes.io/controller-uid": "bbbb-2222"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1",
+            "kind": "Job",
+            "name": "reindex-shards",
+            "controller": true
+          }
+        ]
+      },
+      "status": {
+        "phase": "Failed",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainersNotReady"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "name": "reindex",
+            "ready": false,
+            "restartCount": 0,
+            "state": {
+              "terminated": {
+                "reason": "Error",
+                "exitCode": 1,
+                "finishedAt": "2026-08-12T13:40:15Z"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
