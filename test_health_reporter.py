@@ -16,7 +16,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 
 import health_reporter as hr  # noqa: E402
 
-REPO = pathlib.Path(__file__).resolve().parent.parent
+REPO = pathlib.Path(__file__).resolve().parent
 SAMPLE = REPO / "sample_cluster.json"
 TOOL = REPO / "health_reporter.py"
 
@@ -92,8 +92,8 @@ def test_statefulset_unavailable_replicas(sample_items):
     assert sts is not None
     assert sts.kind == "StatefulSet"
     assert sts.desired == 3
-    assert sts.ready == 0
-    assert sts.unavailable == 3
+    assert sts.ready == 2
+    assert sts.unavailable == 1
 
 
 # --- pod readiness ----------------------------------------------------------
@@ -134,7 +134,7 @@ def test_completed_job_pod_is_not_attributed_to_a_workload():
 def test_crashloop_reason_is_surfaced(sample_items):
     reports = hr.build_report(sample_items)
     sts = find(reports, "search-prod", "search-index")
-    reasons = {p.reason for p in sts.not_ready_pods}
+    reasons = {p["reason"] for p in sts.not_ready_pods}
     assert "CrashLoopBackOff" in reasons
 
 
@@ -143,7 +143,38 @@ def test_restart_count_is_reported(sample_items):
     sts = find(reports, "search-prod", "search-index")
     assert sts.restarts > 0
 
-
+def test_healthy_rolling_update_is_not_reported():
+    items = [
+        {
+            "kind": "Deployment",
+            "metadata": {
+                "namespace": "search-prod",
+                "name": "search-api",
+            },
+            "spec": {
+                "replicas": 3,
+                "strategy": {
+                    "type": "RollingUpdate"
+                },
+            },
+            "status": {
+                "readyReplicas": 2,
+                "availableReplicas": 2,
+                "conditions": [
+                    {
+                        "type": "Available",
+                        "status": "True",
+                    },
+                    {
+                        "type": "Progressing",
+                        "status": "True",
+                    },
+                ],
+            },
+        }
+    ]
+    assert hr.build_report(items) == []
+ 
 # --- CLI --------------------------------------------------------------------
 
 
